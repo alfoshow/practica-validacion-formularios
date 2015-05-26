@@ -4,7 +4,9 @@ $(document).ready(function () {
     
 //------------------CODIGO PARA VALIDATE-----------    
     
-
+var $requerido='<span class="glyphicon glyphicon-asterisk">';
+    
+    
     $('#frm_validar').validate(
         {            
             rules: {
@@ -16,11 +18,6 @@ $(document).ready(function () {
                 apellidos: {
                     required: true,
                     remote: "http://www.futbolistas.com/users.php"
-                },
-                edad: {
-                    required: true,
-                    min:1,
-                    max:99                    
                 },
                 email: {
                     email: true,
@@ -35,10 +32,8 @@ $(document).ready(function () {
                 nombre: {
                     required: "Debes escribir tu nombre"
                 },
-                edad: {
-                    required: "Escribe una edad",
-                    min:"Escribe una edad correcta",
-                    max:"Escribe una edad correcta"
+                apellidos: {
+                    required: "Debes escribir tus apellidos"
                 },
                 email: {
                     email: "El correo electronico no es valido",
@@ -52,14 +47,25 @@ $(document).ready(function () {
             }
         });
     
+    
+           $("input:radio[name=demandante]").click(function () {	 
+               funciones('input:radio[name=demandante]:checked');
+			});    
+    
+    		function funciones(objeto) {
+                //alert($(objeto).val());                
+                
+                if ($(objeto).val()=='particular'){                
+                    $("label[for=nif]").text("NIF ").append($requerido);
+                    $("label[for=nombre_empresa]").text("Nombre ").append($requerido);
+                }
+                else{
+                    $("label[for=nif]").text("CIF ").append($requerido);
+                    $("label[for=nombre_empresa]").text("Empresa ").append($requerido);
+                }
 
+		      }
     
 
-    
-    
-    
-    
-    
-    
     
 });
