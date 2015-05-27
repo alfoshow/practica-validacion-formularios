@@ -6,7 +6,6 @@ $(document).ready(function () {
     
 var $requerido='<span class="glyphicon glyphicon-asterisk">';
     
-    
     $('#frm_validar').validate(
         {            
             rules: {
@@ -16,8 +15,7 @@ var $requerido='<span class="glyphicon glyphicon-asterisk">';
                     
                 }, 
                 apellidos: {
-                    required: true,
-                    remote: "http://www.futbolistas.com/users.php"
+                    required: true
                 },
                 email: {
                     email: true,
@@ -26,7 +24,20 @@ var $requerido='<span class="glyphicon glyphicon-asterisk">';
                 },
                 email2: {
                     equalTo: "#email"
-                }              
+                },nif:{
+                    
+                    nifES: true,
+                    required: true,
+                    remote: "http://localhost/validar/dni.php"
+
+                },cif:{
+                    cifES:true,
+                    required: true
+                   
+                }    
+                
+                
+                
             },
             messages: {
                 nombre: {
@@ -50,21 +61,39 @@ var $requerido='<span class="glyphicon glyphicon-asterisk">';
     
            $("input:radio[name=demandante]").click(function () {	 
                funciones('input:radio[name=demandante]:checked');
-			});    
+			}); 
+    
+           $("input[name=nif]").blur(function () {	
+                alert("shit");
+               completaNombre();
+			});     
     
     		function funciones(objeto) {
                 //alert($(objeto).val());                
                 
                 if ($(objeto).val()=='particular'){                
                     $("label[for=nif]").text("NIF ").append($requerido);
-                    $("label[for=nombre_empresa]").text("Nombre ").append($requerido);
+                    $("label[for=nombre_empresa]").text("Nombre");
+                    $("input[name=nif]").removeClass("hide");
+                    $("input[name=cif]").addClass("hide");                    
+                    
+                    
                 }
                 else{
                     $("label[for=nif]").text("CIF ").append($requerido);
                     $("label[for=nombre_empresa]").text("Empresa ").append($requerido);
+                    $("input[name=cif]").removeClass("hide");
+                    $("input[name=nif]").addClass("hide");
+                    //$("label[for=nif]").attr('for','cif');
                 }
 
 		      }
+    
+    		function completaNombre() {
+            
+            alert("shits");
+            
+            }    
     
 
     

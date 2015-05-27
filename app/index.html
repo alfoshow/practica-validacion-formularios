@@ -67,11 +67,12 @@
               </div>
               <div class="form-group">
                 <label for="nif">NIF <span class="glyphicon glyphicon-asterisk"></label>
-                <input type="text" class="form-control" id="nif" name="nif">
+                 <input type="text" maxlength="9" class="form-control" id="nif" name="nif">
+                <input type="text" maxlength="9" class="form-control hide" id="nif" name="cif">
               </div>
               <div class="form-group">
-                <label for="nombre_empresa">Nombre <span class="glyphicon glyphicon-asterisk"></span></label>
-                <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa">
+                <label for="nombre_empresa">Nombre </label>
+                <input type="text" class="form-control"  disabled id="nombre_empresa" name="nombre_empresa">
               </div> 
               <div class="form-group">
                 <label for="direccion">Dirección <span class="glyphicon glyphicon-asterisk"></span></label>
@@ -149,6 +150,7 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/validacion_xtra.js"></script>
         <!-- endbuild -->
 </body>
 </html>
