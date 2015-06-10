@@ -236,4 +236,6 @@ $.validator.addMethod("iban", function(value, element) {
 	return cRest === 1;
 }, "Por favor introduce un IBAN válido.");
 
-
+$.validator.addMethod("lettersonly", function(value, element) {
+	return this.optional(element) || /^[a-z]+$/i.test(value);
+}, "Letras solo");

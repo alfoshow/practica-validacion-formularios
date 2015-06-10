@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Práctica validación formularios</title>
     <meta name="description" content="">
@@ -15,35 +16,39 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body>
-    
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">VALIDACIÓN DE FORMULARIO</a>
-    </div>
-  </div>
-</nav>   
-    <div class="container" >  
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">VALIDACIÓN DE FORMULARIO</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
         <form role="form-horizontal" id="frm_validar" novalidate>
-         
-         <fieldset class="col-md-offset-1 col-md-5">  
-             <legend>Datos personales</legend>                   
-              <div class="form-group">
-                <label for="nombre">Nombre <span class="glyphicon glyphicon-asterisk"></span></label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce tu nombre">
-              </div>
-              <div class="form-group ">
-                <label for="apellidos">Apellidos <span class="glyphicon glyphicon-asterisk"></span></label>
-                <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Introduce tus apellidos">
-              </div> 
-              <div class="form-group ">
-                <label for="telefono">Teléfono <span class="glyphicon glyphicon-asterisk"></span></label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Introduce tu teléfono" maxlength="9">
-              </div>                                 
-              <div class="form-group ">
-                <label for="email">Email <span class="glyphicon glyphicon-asterisk"></label>
+
+            <fieldset class="col-md-offset-1 col-md-5">
+                <legend>Datos personales</legend>
+                <div class="form-group">
+                    <label for="nombre">Nombre <span class="glyphicon glyphicon-asterisk"></span>
+                    </label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce tu nombre">
+                </div>
+                <div class="form-group ">
+                    <label for="apellidos">Apellidos <span class="glyphicon glyphicon-asterisk"></span>
+                    </label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Introduce tus apellidos">
+                </div>
+                <div class="form-group ">
+                    <label for="telefono">Teléfono <span class="glyphicon glyphicon-asterisk"></span>
+                    </label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Introduce tu teléfono" maxlength="9">
+                </div>
+                <div class="form-group ">
+                    <label for="email">Email <span class="glyphicon glyphicon-asterisk"></label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@mail.com">
               </div> 
               <div class="form-group ">
@@ -79,11 +84,12 @@
                 <input type="text" class="form-control" id="nombre_empresa" name="nombre_empresa">
               </div> 
               <div class="form-group">
-                <label for="direccion">Dirección <span class="glyphicon glyphicon-asterisk"></span></label>
-                <input type="text" class="form-control" id="direccion" name="direccion">
-              </div>  
-              <div class="form-group">
-                <label for="cp">CP</label>
+                <label for="direccion">Dirección <span class="glyphicon glyphicon-asterisk"></span>
+                    </label>
+                    <input type="text" class="form-control" id="direccion" name="direccion">
+                </div>
+                <div class="form-group">
+                    <label for="cp">CP <span class="glyphicon glyphicon-asterisk"></label>
                 <input type="text" class="form-control" id="cp" name="cp">
               </div>
               <div class="form-group">
@@ -95,60 +101,87 @@
                 <input type="text" class="form-control" id="provincia" name="provincia" disabled>                
               </div>
               <div class="form-group">
-                <label for="pais">País</label>
+                <label for="pais">País <span class="glyphicon glyphicon-asterisk"></label>
                 <input type="text" class="form-control" id="pais" name="pais">
               </div>
               <div class="form-group">
-                <label for="iban">Iban <span class="glyphicon glyphicon-asterisk"></span></label>
-                <input type="text" class="form-control" id="iban" name="iban">
-              </div>
-              <div class="form-group">
-                <label for="pago">Forma de pago:</label>
-                <select name="pago">
-                  <option value="1">Mensual</option>
-                  <option value="2">Trimestral</option>
-                  <option value="3">Anual</option>
-                </select>
-              </div>                                                             
-            </fieldset>       
-                                               
-         <fieldset class="col-md-offset-1  col-md-5">  
-             <legend>Datos de acceso:</legend>  
-              <div class="form-group">
-                <label for="usuario">Usuario</label>
-                <input type="text" class="form-control" id="usuario" name="usuario" disabled>
-              </div> 
-              <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Introduce tu contraseña">
-                <input type="password" class="form-control" id="password2" name="password2" placeholder="Introduce otra vez tu contraseña">                
-              </div>                           
-            </fieldset>                                                                                            
-            <div class="form-group col-md-8">                  
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>  
+                <label for="iban">Iban <span class="glyphicon glyphicon-asterisk"></span>
+                    </label>
+                    <input type="text" class="form-control" id="iban" name="iban">
+                </div>
+                <div class="form-group">
+                    <label for="pago">Forma de pago:</label>
+                    <select name="pago">
+                        <option value="1">Mensual</option>
+                        <option value="2">Trimestral</option>
+                        <option value="3">Anual</option>
+                    </select>
+                </div>
+            </fieldset>
 
-            
+            <fieldset class="col-md-offset-1  col-md-5">
+                <legend>Datos de acceso:</legend>
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Introduce tu contraseña">
+                    <div class="progress">
+                        <div id="complexity-bar" class="progress-bar" role="progressbar">
+                        </div>
+                    </div>                  
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Introduce otra vez tu contraseña">
+                </div>
+            </fieldset>
+
+
+
+            <!--
+                                                                                                            <div id="complexify">
+                    <div classs="form">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div id="complexity-bar" class="progress-bar" role="progressbar">
+                        </div>
+                    </div>
+                    <p>
+                        <h1 id="complexity" class="pull-right">0%</h1>
+                    </p>
+                </div>        
+-->
+
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+
+
         </form>
-        
-        <div id="origen">
-            
-            
-        </div>
-        
-    </div>   
+
+
+    </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="bower_components/jquery.complexify.js/jquery.complexify.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/validacion_xtra.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/validacion_xtra.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>
