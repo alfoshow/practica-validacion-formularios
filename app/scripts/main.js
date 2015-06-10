@@ -1,19 +1,6 @@
 'use strict';
 $(document).ready(function () {
 
-
-    //CARGO POR AJAX LAS PROVINCIAS.......mejor no, voy a quitar los select option     
-
-    //var url="http://localhost/validar/validar.php";
-    //$("#ajaxlocal").html("");
-    //$.getJSON(url,function(provincias){
-    //$.each(provincias, function(i,provincia){
-    //var newRow = "<option value='"+provincia.CodProv+"'>"+provincia.Provincia+"</option>";
-    //$(newRow).appendTo("#provincia");
-    //});
-    //});    
-
-
     //------------------CODIGO PARA VALIDATE-----------    
 
     var $requerido = '<span class="glyphicon glyphicon-asterisk">';
@@ -41,11 +28,9 @@ $(document).ready(function () {
                 equalTo: "#email"
             },
             nif: {
-
                 nifES: true,
                 required: true,
                 remote: "http://localhost/validar/dni.php"
-
             },
             cif: {
                 cifES: true,
@@ -65,7 +50,13 @@ $(document).ready(function () {
             pais: {
                 required: true,
                 lettersonly: true
-            }              
+            },
+            password: {
+                required: true
+            },
+            password2: {
+                equalTo: "#password"
+            }                
         },
         messages: {
             nombre: {
@@ -90,7 +81,7 @@ $(document).ready(function () {
             },
             iban: {
                 required: "Completa el código IBAN",
-                 minlength: "Introduce un nombre de usuario de al menos 4 letras"
+                minlength: "Introduce un nombre de usuario de al menos 4 letras"
             },
             cp: {
                 required: "Completa el código postal",
@@ -98,9 +89,28 @@ $(document).ready(function () {
             },
             pais: {
                 required: "Completa el campo"
-            } 
+            },
+            password: {
+                required: "Introduce una contraseña"
+            },
+            password2: {
+                equalTo: "Introduce la misma contraseña"
+            }
+
+        },
+        submitHandler: function (form) {
+
+            $('#myModal').modal('show');
             
+             $('#aceptar').click(function(){
+                form.submit();
+             });
+            //$(form).submit();
         }
+
+
+
+
     });
 
 
@@ -118,6 +128,19 @@ $(document).ready(function () {
         $("input[name=usuario]").val(nombre);
     });
 
+
+    $('select#pagos').on('change', function () {
+        var valor = $(this).val();
+        if (valor == 1) {
+            $("#cuota").html("50 euros");
+        }
+        if (valor == 2) {
+            $("#cuota").html("140 euros");
+        }
+        if (valor == 3) {
+            $("#cuota").html("550 euros");
+        }
+    });
 
 
 
@@ -142,17 +165,16 @@ $(document).ready(function () {
         }
     }
 
-    $("input[name=cp]").change(completaLocalidad);    
-    
+    $("input[name=cp]").change(completaLocalidad);
+
     function completaLocalidad() {
         //PASO EL CP DEL DOM AL FICHERO PHP
-        if ($(this).val().length==4){
-            
-             var cp =0+$(this).val();
+        if ($(this).val().length == 4) {
+
+            var cp = 0 + $(this).val();
             $(this).val(cp);
-        }
-        else{
-        
+        } else {
+
             var cp = $(this).val();
         }
         $.ajax({
@@ -166,31 +188,23 @@ $(document).ready(function () {
         }).done(function (provincias) {
             //                     DEVUELVO LA CONSULTA EN UN JSON
             $.each(provincias, function (i, provincia) {
-            $("input[name=localidad]").val(provincia.Municipio);    
-            $("input[name=provincia]").val(provincia.Provincia);    
+                $("input[name=localidad]").val(provincia.Municipio);
+                $("input[name=provincia]").val(provincia.Provincia);
 
             });
         });
     }
-    
-	$('#password').complexify({}, function (valid, complexity) {   
-		var progressBar = $('#complexity-bar');
 
-		progressBar.toggleClass('progress-bar-success', valid);
-		progressBar.toggleClass('progress-bar-danger', !valid);
-		progressBar.css({'width': complexity + '%'});
-	});    
-    
-    
-//	$('#complexify #password').complexify({}, function (valid, complexity) {
-//		var progressBar = $('#complexify #complexity-bar');
-//
-//		progressBar.toggleClass('progress-bar-success', valid);
-//		progressBar.toggleClass('progress-bar-danger', !valid);
-//		progressBar.css({'width': complexity + '%'});
-//
-//		$('#complexify #complexity').text(Math.round(complexity) + '%');
-//	});
+    $('#password').complexify({}, function (valid, complexity) {
+        var progressBar = $('#complexity-bar');
+
+        progressBar.toggleClass('progress-bar-success', valid);
+        progressBar.toggleClass('progress-bar-danger', !valid);
+        progressBar.css({
+            'width': complexity + '%'
+        });
+    });
+
 
 
 
